@@ -1,0 +1,55 @@
+//-********************************************************************************
+//---------------------------------------------------------------------------------
+//- EXTEND index
+//---------------------------------------------------------------------------------
+//-********************************************************************************
+
+//-============================================================
+//- includes
+//-============================================================
+
+block config
+	include settings/_config
+block variables
+	include settings/_variables
+block mixins
+	include settings/_mixins
+
+//-============================================================
+//- layout
+//-============================================================
+
+html
+	head
+		// page title
+		title #{pageTitle}
+		// meta
+		meta( charset="utf-8" )
+		meta( charset="viewport" content="width=device-width, initial-scale=1.0" )
+		meta( name="keywords" content=pageKeywords )
+		meta( name="description" content=pageDesc )
+		// stylesheets
+		+addBootstrapCss
+		// default
+		link( href=pathCss , rel="stylesheet", type="text/css" )
+		//- additional
+		+addGoogleFonts
+		+addRespondJs
+	body( class=classesBodyd )
+		nav( class=classesNav )
+			block nav
+		header( class=classesHeader )
+			block header
+		main( class=classesMain )
+			block main
+				article( class=classesArticle )
+					block article
+				aside( class=classesAside )
+					block aside
+		footer( class=classesFooter )
+			block footer
+	// javascripts
+	+addJquery
+	+addBootstrapJs
+	script( href=pathJs )
+
